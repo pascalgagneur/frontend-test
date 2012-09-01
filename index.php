@@ -1,21 +1,47 @@
 <?php
+
 header("Content-Type: text/html; charset=utf-8");
 const FNAME = "fullname";
 const EMAIL = "email";
 const WEBSITE = "website";
 const MSG = "msg";
 
+
 if($_GET['q']) {
     $fname = $_GET[FNAME];
     $email = $_GET[EMAIL];
     $website = $_GET[WEBSITE];
     $msg = $_GET[MSG];
-    include_once("data/dblayer.php");
-    try {
-        DBConnection::saveMessageToDB($fname, $email, $website, $msg);
-    } catch (Exception $e) {
-        error_log($e);
-        echo "Error while saving result to db. ".$e->getMessage();
+
+    if (!isset($fname)) {
+        $fname_error = true;
+        $any_error =true;
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email_error = true;
+        $any_error =true;
+    }
+    if (!filter_var($website, FILTER_VALIDATE_URL)) {
+        $website_error = true;
+        $any_error =true;
+    }
+    if (!isset($msg)) {
+        $msg_error = true;
+        $any_error =true;
+    }
+    echo '1:'.$fname_error;
+    echo '2:'.$email_error;
+    echo $website.':'.$website_error;
+    echo '4:'.$msg_error;
+
+    if (!$any_error) {
+        include_once("data/dblayer.php");
+        try {
+            DBConnection::saveMessageToDB($fname, $email, $website, $msg);
+        } catch (Exception $e) {
+            error_log($e);
+            echo "Error while saving result to db. ".$e->getMessage();
+        }
     }
 }
 ?><!DOCTYPE html>
