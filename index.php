@@ -107,23 +107,23 @@ if($_GET['q']) {
         <div class="wrapper">
 
             <article >
-                    <a><h2 class="icon-home">Lorme Ipsom Dolor</h2></a>
+                    <h2 class="icon-home"><a href="#">Lorme Ipsom Dolor</a></h2>
                     <p>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ip unknown printer took a galley of type and</p>
-                    <a>see more..</a>
+                    <a href="#">see more..</a>
             </article>
             <article  >
-                <a><h2 class="icon-paper">Lorme Ipsom Dolor</h2></a>
+                <h2 class="icon-paper"><a href="#">Lorme Ipsom Dolor</a></h2>
                     <p>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ip unknown printer took a galley of type and</p>
-                    <a>see more..</a>
+                    <a href="#">see more..</a>
             </article>
 
             <article class="last">
-                <a><h2 class="icon-bag">Lorme Ipsom Dolor</h2></a>
+                <h2 class="icon-bag"><a href="#">Lorme Ipsom Dolor</a></h2>
                     <p>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ip unknown printer took a galley of type and</p>
-                    <a>see more..</a>
+                    <a href="#">see more..</a>
             </article>
         </div>
     </section>

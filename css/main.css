@@ -48,6 +48,9 @@ body {
   line-height: 1.5em;
   min-width: 700px;
 }
+h2 {
+  font-size: 0.875em;
+}
 a {
   text-decoration: none;
 }
@@ -176,6 +179,7 @@ a:focus {
   float: left;
 }
 .company-info article h2 {
+  width: 100%;
   height: 35px;
   border: 1px solid green;
   padding-left: 50px;
@@ -191,6 +195,9 @@ a:focus {
 }
 .company-info article.last {
   margin-right: 0;
+}
+.company-info article > a {
+  float: right;
 }
 .rss {
   float: right;
