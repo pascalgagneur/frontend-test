@@ -53,34 +53,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover,
-a:active,
-a:focus {
-    text-decoration: underline;
-}
-
-
-.wrapper {
-    width: 90%;
-    margin: 0 auto;
-
-
-    border: 1px solid red;
-}
-
-.header-container {
-    background-color: black;
-    color: #fff;
-}
+@import "custom.less";
 
 
 
@@ -95,11 +68,15 @@ a:focus {
    ========================================================================== */
 
 @media only screen and (min-width: 35em) {
+    /*
     .wrapper {
-        width: 660px; /* 1140px - 10% for margins */
+        width: 660px;
+        // 1140px - 10% for margins
         margin: 0 auto;
     }
+    */
 }
+
 /*
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 144dpi) {
@@ -114,7 +91,7 @@ a:focus {
     background-color: transparent;
     border: 0;
     overflow: hidden;
-    *text-indent: -9999px;
+    text-indent: -9999px;
 }
 
 .ir:before {

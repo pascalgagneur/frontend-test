@@ -1,0 +1,203 @@
+// Placeholder text
+// -------------------------
+.placeholder(@color: @placeholderText) {
+    &:-moz-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+}
+.sprite(@top, @left) {
+    background: url(../img/sprite.png) no-repeat -@top -@left;
+}
+.spriteX(@top, @left) {
+    background: url(../img/sprite.png) repeat-x -@top -@left;
+}
+
+.emsFont(@px) {
+    font-size:  @px/16em;
+}
+.emsLineH(@px) {
+    line-height:  @px/16em;
+}
+
+// Border Radius
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.topBottomGradient(@color1, @color2) {
+    background:  @color1; /* Old browsers */
+    background: -moz-linear-gradient(top, @color1 0%, @color2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, @color1 0%,@color2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, @color1 0%,@color2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, @color1 0%,@color2 100%); /* IE10+ */
+    background: linear-gradient(to bottom, @color1 0%,@color2 100%); /* W3C */
+
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorStr="@color1~", EndColorStr="@color2~")";
+
+    zoom: 1
+}
+
+@mainWidth: 660px;
+@mainPaddig: 40px;
+@bannerPadding: 140px;
+
+body {
+    font-family: Arial, sans-serif;
+    .emsFont(12);
+    .emsLineH(24);
+    min-width: @mainWidth + @mainPaddig;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover,
+a:active,
+a:focus {
+    text-decoration: underline;
+}
+
+.wrapper {
+    width: @mainWidth - @mainPaddig;
+    padding: 0 @mainPaddig/2;
+    margin: 0 auto;
+    //border: 1px solid red;
+}
+
+.header-container{
+    .spriteX(0, 250px);
+    height: 80px;
+    padding: 35px 0 0 @mainPaddig;
+
+    .title {
+        width: 101px;
+        height: 50px;
+        margin: 0;
+        background: transparent url('../img/logo.png') no-repeat;
+        float: left;
+    }
+    .main-navigation {
+        width: 490px;
+        float: right;
+
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav{
+            display: block;
+            height: 50px;
+            width: 92px;
+            color: #fff;
+
+
+        }
+
+        li{
+            &.nav{
+                border-left: 1px solid #2e2e2d;
+                float: left;
+                padding: 0 0 0 12px;
+                margin-left: 10px;
+                letter-spacing: -.1em;
+                line-height: 2em;
+            }
+        }
+    }
+
+}
+.footer-container{
+    background-color: black;
+    color: #fff;
+}
+.main-container{
+    padding-top: @mainPaddig/2;
+    .topBottomGradient(#e5e5e4, #f6f6f5);
+}
+.banner-container {
+    height: 145px;
+    margin-bottom: @mainPaddig/2;
+    overflow: hidden;
+    background-color: #6c6c65;
+    .border-radius(5px);
+    position: relative;
+    color: #fff;
+
+    .banner {
+        @articleWidth: @mainWidth - @bannerPadding;
+        padding: @mainPaddig/2 0;
+        display: block;
+        width: @articleWidth;
+        margin: 0 auto;
+        height: 100px;
+
+        img {
+            float: left;
+        }
+        p {
+            width: @articleWidth/2 - @mainPaddig;
+            margin: 0;
+            float: right
+        }
+    }
+}
+.content-container {
+    margin: @mainPaddig/4 0;
+        border-top: 1px solid #e2e2df;
+        border-bottom: 1px solid #e2e2df;
+        padding: @mainPaddig/4 0;
+
+    .content {
+        .spriteX(0, 400px);
+        background-color: #fefefe;
+        padding: @mainPaddig/2;
+    }
+
+}
+.company-info {
+    background-color: #d9d7d0;
+    padding: @mainPaddig 0;
+    .wrapper {
+        width: @mainWidth;
+        padding: 0;
+    }
+    article {
+        width: (@mainWidth/3)-@mainPaddig/2;
+        margin-right: @mainPaddig/2+@mainPaddig/4;
+        float: left;
+        h2 {
+            height: 35px;
+            border: 1px solid green;
+            padding-left: 50px;
+            &.icon-home {
+                .sprite(0, 100px);
+            }
+            &.icon-paper {
+                .sprite(0, 150px);
+            }
+            &.icon-bag {
+                .sprite(0, 200px);
+            }
+        }
+        &.last{
+            margin-right: 0;
+        }
+    }
+}
+.rss {
+    float: right;
+}
+
+//Special classes
+.placeholder(#ccc);
+
