@@ -147,7 +147,7 @@ if($_GET['q']) {
 </div> <!-- #main-container -->
 <div class="footer-container">
     <footer class="wrapper">
-        &copy;<span class="rss">RSS</span>
+        <span>&copy; MyFakeCompany</span> <a href="#" class="rss"><span>RSS</span></a>
     </footer>
 </div>
 

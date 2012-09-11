@@ -103,10 +103,6 @@ a:focus {
   letter-spacing: -0.1em;
   line-height: 2em;
 }
-.footer-container {
-  background-color: black;
-  color: #fff;
-}
 .main-container {
   padding-top: 20px;
   background: #e5e5e4;
@@ -217,8 +213,21 @@ a:focus {
   float: right;
   margin-right: 20px;
 }
-.rss {
+.footer-container {
+  background-color: black;
+  padding: 10px 0;
+  color: #fff;
+  overflow: hidden;
+  font-size: 0.875em;
+}
+.footer-container span {
+  float: left;
+}
+.footer-container .rss {
+  padding-left: 18px;
+  background: url(../img/sprite.png) no-repeat 0 3px;
   float: right;
+  color: #fff;
 }
 :-moz-placeholder {
   color: #cccccc;
@@ -247,6 +256,9 @@ a:focus {
 }
 .lt-ie7 .icon-bag {
   background: url(../img/sprite_ie6.png) no-repeat 0 -250px !important;
+}
+.lt-ie7 .rss {
+  background: url(../img/sprite_ie6.png) no-repeat 0 3px !important;
 }
 /* ==========================================================================
    Media Queries

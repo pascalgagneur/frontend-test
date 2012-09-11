@@ -130,10 +130,6 @@ a:focus {
     }
 
 }
-.footer-container{
-    background-color: black;
-    color: #fff;
-}
 .main-container{
     padding-top: @mainPaddig/2;
     .topBottomGradient(#e5e5e4, #f6f6f5);
@@ -226,9 +222,24 @@ a:focus {
         }
     }
 }
-.rss {
-    float: right;
+.footer-container{
+    background-color: black;
+    padding: @mainPaddig/4 0;
+    color: #fff;
+    overflow: hidden;
+    .emsFont(14);
+    span{
+        float: left;
+    }
+    .rss {
+        padding-left: 18px;
+        .sprite(0, -3px);
+        float: right;
+        color: #fff;
+    }
+
 }
+
 
 //Special classes
 .placeholder(#ccc);
@@ -256,5 +267,8 @@ a:focus {
     }
     .icon-bag {
         .spriteIE6(0, 250px) !important;
+    }
+    .rss {
+        .spriteIE6(0, -3px) !important;
     }
 }
