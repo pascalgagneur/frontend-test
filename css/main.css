@@ -48,6 +48,10 @@ body {
   line-height: 1.5em;
   min-width: 700px;
 }
+h1 {
+  font-size: 1.5em;
+  font-weight: normal;
+}
 h2 {
   font-size: 0.875em;
 }
@@ -65,7 +69,8 @@ a:focus {
   margin: 0 auto;
 }
 .header-container {
-  background: url(../img/sprite.png) repeat-x 0 -250px;
+  background: url(../img/sprite.png) repeat-x 0 -300px;
+  background-color: #212121;
   height: 80px;
   padding: 35px 0 0 40px;
 }
@@ -161,9 +166,12 @@ a:focus {
   padding: 10px 0;
 }
 .content-container .content {
-  background: url(../img/sprite.png) repeat-x 0 -400px;
+  background: url(../img/sprite.png) repeat-x 0 -450px;
   background-color: #fefefe;
   padding: 20px;
+}
+.content-container h1 {
+  margin-top: 0;
 }
 .company-info {
   background-color: #d9d7d0;
@@ -177,27 +185,37 @@ a:focus {
   width: 200px;
   margin-right: 30px;
   float: left;
+  font-style: italic;
+}
+.company-info article p {
+  color: #fff;
+}
+.company-info article a {
+  color: #1c5972;
 }
 .company-info article h2 {
   width: 100%;
-  height: 35px;
-  border: 1px solid green;
-  padding-left: 50px;
+  height: 25px;
+  margin-bottom: 0;
+  padding: 10px 0 0 50px;
+  font-size: 1.125em;
+  font-style: normal;
 }
 .company-info article h2.icon-home {
-  background: url(../img/sprite.png) no-repeat 0 -100px;
-}
-.company-info article h2.icon-paper {
   background: url(../img/sprite.png) no-repeat 0 -150px;
 }
-.company-info article h2.icon-bag {
+.company-info article h2.icon-paper {
   background: url(../img/sprite.png) no-repeat 0 -200px;
+}
+.company-info article h2.icon-bag {
+  background: url(../img/sprite.png) no-repeat 0 -250px;
 }
 .company-info article.last {
   margin-right: 0;
 }
 .company-info article > a {
   float: right;
+  margin-right: 20px;
 }
 .rss {
   float: right;
@@ -210,6 +228,25 @@ a:focus {
 }
 ::-webkit-input-placeholder {
   color: #cccccc;
+}
+.lt-ie7 .header-container {
+  background: url(../img/sprite_ie6.png) repeat-x 0 -300px !important;
+}
+.lt-ie7 .header-container .title {
+  background: transparent url('../img/logo_ie6.png') no-repeat !important;
+}
+.lt-ie7 .content-container .content {
+  background: url(../img/sprite_ie6.png) repeat-x 0 -450px !important;
+  background-color: #fefefe;
+}
+.lt-ie7 .icon-home {
+  background: url(../img/sprite_ie6.png) no-repeat 0 -150px !important;
+}
+.lt-ie7 .icon-paper {
+  background: url(../img/sprite_ie6.png) no-repeat 0 -200px !important;
+}
+.lt-ie7 .icon-bag {
+  background: url(../img/sprite_ie6.png) no-repeat 0 -250px !important;
 }
 /* ==========================================================================
    Media Queries
