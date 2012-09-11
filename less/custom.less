@@ -222,6 +222,42 @@ a:focus {
         }
     }
 }
+.quick-contact-container {
+    padding: @mainPaddig/2 0 @mainPaddig;
+    legend {
+        padding: @mainPaddig/4 0;
+        .emsFont(24);
+    }
+    .text-input {
+        width: 45%;
+        margin: @mainPaddig/6 0;
+        padding: @mainPaddig/4;
+        .border-radius(5px);
+        border: 1px solid #d3d3d3;
+        .emsFont(18);
+    }
+    textarea {
+        width: 45%;
+        height: 8.7em;
+        margin: @mainPaddig/6 0;
+        padding: @mainPaddig/4;
+        float: right;
+        .border-radius(5px);
+        border: 1px solid #d3d3d3;
+        .emsFont(18);
+    }
+    .submit {
+        background: #898980;
+        padding: @mainPaddig/8 @mainPaddig/4;
+        color: #fff;
+        border: none;
+        float: right;
+        .emsFont(14);
+    }
+    .error {
+        border-color: red;
+    }
+}
 .footer-container{
     background-color: black;
     padding: @mainPaddig/4 0;
@@ -240,11 +276,12 @@ a:focus {
 
 }
 
-
 //Special classes
 .placeholder(#ccc);
 
-
+.placeholder {
+    color: #ccc;
+}
 //handling IE 6 png issue
 .lt-ie7 {
     .header-container{

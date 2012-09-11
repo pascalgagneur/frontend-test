@@ -13,6 +13,8 @@ if($_GET['q']) {
     $website = $_GET[WEBSITE];
     $msg = $_GET[MSG];
 
+    $any_error = false;
+
     if (!isset($fname)) {
         $fname_error = true;
         $any_error =true;
@@ -29,10 +31,12 @@ if($_GET['q']) {
         $msg_error = true;
         $any_error =true;
     }
-    echo '1:'.$fname_error;
-    echo '2:'.$email_error;
+    echo '<!--';
+    echo ' 1:'.$fname_error;
+    echo ' 2:'.$email_error;
     echo $website.':'.$website_error;
-    echo '4:'.$msg_error;
+    echo ' 4:'.$msg_error;
+    echo '-->';
 
     if (!$any_error) {
         include_once("data/dblayer.php");
@@ -127,21 +131,24 @@ if($_GET['q']) {
             </article>
         </div>
     </section>
-    <section class="quick-contact wrapper clearfix">
-        <form action="index.php" role="search" method="get" name="quickcontact">
+    <section class="quick-contact-container wrapper clearfix">
+        <form action="index.php" role="search" method="get" name="quickcontact" id="quickcontactform">
             <input type="hidden" name="q" value="save">
+            <div class="error-field">Check</div>
             <fieldset>
                 <legend>Quick contact</legend>
-                <label for="fullname" class="visuallyhidden">Name</label>
-                <input id="fullname" type="text" name="<?=FNAME?>" placeholder="Name" title="Name" required="required" />
-                <label for="email" class="visuallyhidden">e-mail</label>
-                <input id="email" type="email" name="<?=EMAIL?>" placeholder="e-mail" title="e-mail" required="required" />
-                <label for="website" class="visuallyhidden" >Website <abbr title="Uniform resource locator">URL</abbr></label>
-                <input id="website" name="<?=WEBSITE?>" type="url" placeholder="Website URL" title="Website URL" required="required" />
-                <label for="msg" class="visuallyhidden">Write your message here</label>
-                <textarea id="msg" name="<?=MSG?>" required="required" placeholder="Write your message here" title="Write your message here."></textarea>
-                <input type="submit" title="Submit">
+                <label for="quick-contact-msg" class="visuallyhidden">Write your message here</label>
+                <textarea id="quick-contact-msg" name="<?=MSG?>" required="required" placeholder="Write your message here" title="Write your message here." tabindex="4"></textarea>
+                <label for="quick-contact-fullname" class="visuallyhidden">Name</label>
+                <input class="text-input" id="quick-contact-fullname" type="text" name="<?=FNAME?>" placeholder="Name" title="Name" required="required" tabindex="1" />
+                <label for="quick-contact-email" class="visuallyhidden">e-mail</label>
+                <input class="text-input" id="quick-contact-email" type="email" name="<?=EMAIL?>" placeholder="e-mail" title="e-mail" required="required" tabindex="2" />
+                <label for="quick-contact-website" class="visuallyhidden" >Website <abbr title="Uniform resource locator">URL</abbr></label>
+                <input class="text-input" id="quick-contact-website" name="<?=WEBSITE?>" type="url" placeholder="Website URL" title="Website URL" required="required" tabindex="3" />
             </fieldset>
+
+            <input class="submit" type="submit" title="Submit" value="SUBMIT" tabindex="5">
+
         </form>
     </section>
 </div> <!-- #main-container -->

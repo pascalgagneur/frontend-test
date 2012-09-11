@@ -213,6 +213,46 @@ a:focus {
   float: right;
   margin-right: 20px;
 }
+.quick-contact-container {
+  padding: 20px 0 40px;
+}
+.quick-contact-container legend {
+  padding: 10px 0;
+  font-size: 1.5em;
+}
+.quick-contact-container .text-input {
+  width: 45%;
+  margin: 6.666666666666667px 0;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  font-size: 1.125em;
+}
+.quick-contact-container textarea {
+  width: 45%;
+  height: 8.7em;
+  margin: 6.666666666666667px 0;
+  padding: 10px;
+  float: right;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  font-size: 1.125em;
+}
+.quick-contact-container .submit {
+  background: #898980;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  float: right;
+  font-size: 0.875em;
+}
+.quick-contact-container .error {
+  border-color: red;
+}
 .footer-container {
   background-color: black;
   padding: 10px 0;
@@ -237,6 +277,9 @@ a:focus {
 }
 ::-webkit-input-placeholder {
   color: #cccccc;
+}
+.placeholder {
+  color: #ccc;
 }
 .lt-ie7 .header-container {
   background: url(../img/sprite_ie6.png) repeat-x 0 -300px !important;

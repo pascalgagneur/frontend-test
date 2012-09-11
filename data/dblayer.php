@@ -76,11 +76,11 @@ class DBConnection extends Config  {
                     $msg.'", "'.
                     false.'");';
 
-            echo("Query=".$query);
+            //echo("Query=".$query);
 
             $resultOfInsert = mysqli_query($db, $query);
             if ($resultOfInsert) {
-                echo $logDate." Succesfully update db\n";
+                //echo $logDate." Succesfully update db\n";
                 return true;
             } else {
                 echo $logDate." Error update db\n";
