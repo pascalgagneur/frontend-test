@@ -48,6 +48,7 @@ if($_GET['q']) {
         }
     }
 }
+
 ?><!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -60,10 +61,9 @@ if($_GET['q']) {
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="css/normalize.min.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <script src="js/vendor/modernizr-2.6.1.min.js"></script>
+    <!--<script src="js/vendor/modernizr-2.6.1.min.js"></script>-->
     <!-- live reload snippet-->
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </head>
@@ -107,7 +107,7 @@ if($_GET['q']) {
                </div>
         </section>
     </div>
-        <section class="company-info clearfix">
+    <section class="company-info clearfix">
         <div class="wrapper">
 
             <article >
@@ -151,7 +151,8 @@ if($_GET['q']) {
 
         </form>
     </section>
-</div> <!-- #main-container -->
+</div>
+<!-- #main-container -->
 <div class="footer-container">
     <footer class="wrapper">
         <span>&copy; MyFakeCompany</span> <a href="#" class="rss"><span>RSS</span></a>
