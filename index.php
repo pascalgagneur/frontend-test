@@ -79,9 +79,10 @@ if($_GET['q']) {
     <!--[if lt IE 9]>
         <script src="js/vendor/modernizr-2.6.2-custom.min.js"></script>
     <![endif]-->
-
+    <?/* Dev tool
     <!-- live reload snippet -->
     <!--<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>-->
+    */?>
 </head>
 <body>
 <div class="header-container">
@@ -104,10 +105,13 @@ if($_GET['q']) {
                     <img src="img/banner1.jpg" alt="some info">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ante enim, tempor quis, consectetur in, sollicitudin a, nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
             </article>
+            <!-- disable until banner function built -->
+            <?/*
             <article class="banner">
                 <img src="img/banner1.jpg" alt="some info">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
             </article>
+            */?>
         </section>
         <section class="content-container clearfix">
                 <div class="content">
