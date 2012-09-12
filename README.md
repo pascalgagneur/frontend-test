@@ -1,4 +1,7 @@
 frontend-test
 =============
 
-Testing out some html
+- Create db frontend-test
+- Create table -> sql/create_table.sql
+
+- CSS is built from -> less/main.less
