@@ -6,6 +6,20 @@ const EMAIL = "email";
 const WEBSITE = "website";
 const MSG = "msg";
 
+$fname;
+$email = "";
+$website = "";
+$msg;
+
+$any_error = false;
+$fname_error = false;
+$email_error = false;
+$website_error = false;
+$msg_error = false;
+
+$messageSent = false;
+
+$user_msg = "";
 
 if($_GET['q']) {
     $fname = $_GET[FNAME];
@@ -13,11 +27,9 @@ if($_GET['q']) {
     $website = $_GET[WEBSITE];
     $msg = $_GET[MSG];
 
-    $any_error = false;
-
-    if (!isset($fname)) {
+    if (strlen(trim($fname)) <= 0 ) {
         $fname_error = true;
-        $any_error =true;
+        $any_error = true;
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_error = true;
@@ -27,25 +39,27 @@ if($_GET['q']) {
         $website_error = true;
         $any_error =true;
     }
-    if (!isset($msg)) {
+    if (strlen(trim($msg)) <= 0 ) {
         $msg_error = true;
         $any_error =true;
     }
-    echo '<!--';
-    echo ' 1:'.$fname_error;
-    echo ' 2:'.$email_error;
-    echo $website.':'.$website_error;
-    echo ' 4:'.$msg_error;
-    echo '-->';
 
     if (!$any_error) {
         include_once("data/dblayer.php");
         try {
             DBConnection::saveMessageToDB($fname, $email, $website, $msg);
+            $messageSent = true;
+            $fname = "";
+            $email = "";
+            $website = "";
+            $msg = "";
+            $user_msg = "Message sent!";
         } catch (Exception $e) {
             error_log($e);
-            echo "Error while saving result to db. ".$e->getMessage();
+            $user_msg =  "Error while saving result to db. ".$e->getMessage();
         }
+    } else {
+        $user_msg = "Oops!! Something is wrong, check entered values";
     }
 }
 
@@ -56,16 +70,18 @@ if($_GET['q']) {
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
-    <title></title>
-    <meta name="description" content="">
+    <title>Frontend Test</title>
+    <meta name="description" content="Haha">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main-min.css">
+    <!--<link rel="stylesheet" href="css/main.css">-->
+    <!--[if lt IE 9]>
+        <script src="js/vendor/modernizr-2.6.2-custom.min.js"></script>
+    <![endif]-->
 
-    <!--<script src="js/vendor/modernizr-2.6.1.min.js"></script>-->
-    <!-- live reload snippet-->
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    <!-- live reload snippet -->
+    <!--<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>-->
 </head>
 <body>
 <div class="header-container">
@@ -132,19 +148,30 @@ if($_GET['q']) {
         </div>
     </section>
     <section class="quick-contact-container wrapper clearfix">
-        <form action="index.php" role="search" method="get" name="quickcontact" id="quickcontactform">
+        <form action="index.php#quick-contact-user-message" role="search" method="get" name="quickcontact" id="quickcontactform">
             <input type="hidden" name="q" value="save">
-            <div class="error-field">Check</div>
+
             <fieldset>
                 <legend>Quick contact</legend>
+                <div id="quick-contact-user-message"
+                <?php
+                    if ($messageSent) {
+                ?>class="ok"
+                <?php
+                    } else if ($any_error) {
+                ?>class="error"
+                <?php
+                    }
+                ?>><?=$user_msg?>
+                </div>
                 <label for="quick-contact-msg" class="visuallyhidden">Write your message here</label>
-                <textarea id="quick-contact-msg" name="<?=MSG?>" required="required" placeholder="Write your message here" title="Write your message here." tabindex="4"></textarea>
+                <textarea id="quick-contact-msg" <? if ($msg_error) {?>class="error"<?}?> name="<?=MSG?>" required="required" placeholder="Write your message here" title="Write your message here." tabindex="4"><?=$msg?></textarea>
                 <label for="quick-contact-fullname" class="visuallyhidden">Name</label>
-                <input class="text-input" id="quick-contact-fullname" type="text" name="<?=FNAME?>" placeholder="Name" title="Name" required="required" tabindex="1" />
+                <input class="text-input<? if ($fname_error) {?> error<?}?>" id="quick-contact-fullname" type="text" name="<?=FNAME?>" value="<?=$fname?>" placeholder="Name" title="Name" required="required" tabindex="1" />
                 <label for="quick-contact-email" class="visuallyhidden">e-mail</label>
-                <input class="text-input" id="quick-contact-email" type="email" name="<?=EMAIL?>" placeholder="e-mail" title="e-mail" required="required" tabindex="2" />
+                <input class="text-input<? if ($email_error) {?> error<?}?>" id="quick-contact-email" type="email" name="<?=EMAIL?>" value="<?=$email?>" placeholder="e-mail" title="e-mail" required="required" tabindex="2" />
                 <label for="quick-contact-website" class="visuallyhidden" >Website <abbr title="Uniform resource locator">URL</abbr></label>
-                <input class="text-input" id="quick-contact-website" name="<?=WEBSITE?>" type="url" placeholder="Website URL" title="Website URL" required="required" tabindex="3" />
+                <input class="text-input<? if ($website_error) {?> error<?}?>" id="quick-contact-website" name="<?=WEBSITE?>" value="<?=$website?>" type="url" placeholder="Website URL" title="Website URL" required="required" tabindex="3" />
             </fieldset>
 
             <input class="submit" type="submit" title="Submit" value="SUBMIT" tabindex="5">
@@ -163,6 +190,6 @@ if($_GET['q']) {
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.1.min.js"><\/script>')</script>
 
-<script src="js/main.js"></script>
+<script src="js/main-min.js"></script>
 </body>
 </html>

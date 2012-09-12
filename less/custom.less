@@ -238,7 +238,7 @@ a:focus {
     }
     textarea {
         width: 45%;
-        height: 8.7em;
+        height: 8.75em;
         margin: @mainPaddig/6 0;
         padding: @mainPaddig/4;
         float: right;
@@ -258,6 +258,19 @@ a:focus {
         border-color: red;
     }
 }
+#quick-contact-user-message {
+    display: none;
+    padding: @mainPaddig/2 0;
+    &.error {
+        color: red;
+        display: block;
+    }
+    &.ok {
+        color: green;
+        display: block;
+    }
+}
+
 .footer-container{
     background-color: black;
     padding: @mainPaddig/4 0;
@@ -295,6 +308,9 @@ a:focus {
             .spriteXIE6(0, 450px) !important;
             background-color: #fefefe;
         }
+    }
+    .company-info {
+        h2 { width: 50% !important;}
     }
     .icon-home {
         .spriteIE6(0, 150px) !important;

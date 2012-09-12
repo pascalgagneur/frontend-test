@@ -462,7 +462,7 @@ a:focus {
 }
 .quick-contact-container textarea {
   width: 45%;
-  height: 8.7em;
+  height: 8.75em;
   margin: 6.666666666666667px 0;
   padding: 10px;
   float: right;
@@ -482,6 +482,18 @@ a:focus {
 }
 .quick-contact-container .error {
   border-color: red;
+}
+#quick-contact-user-message {
+  display: none;
+  padding: 20px 0;
+}
+#quick-contact-user-message.error {
+  color: red;
+  display: block;
+}
+#quick-contact-user-message.ok {
+  color: green;
+  display: block;
 }
 .footer-container {
   background-color: black;
@@ -521,6 +533,9 @@ a:focus {
   background: url(../img/sprite_ie6.png) repeat-x 0 -450px !important;
   background-color: #fefefe;
 }
+.lt-ie7 .company-info h2 {
+  width: 50% !important;
+}
 .lt-ie7 .icon-home {
   background: url(../img/sprite_ie6.png) no-repeat 0 -150px !important;
 }
@@ -536,20 +551,23 @@ a:focus {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
-@media only screen and (min-width: 35em) {
-  /*
-      .wrapper {
-          width: 660px;
-          // 1140px - 10% for margins
-          margin: 0 auto;
-      }
-      */
-}
 /*
+@media only screen and (min-width: 35em) {
+
+    .wrapper {
+        width: 660px;
+        // 1140px - 10% for margins
+        margin: 0 auto;
+    }
+
+}
+
+
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 144dpi) {
 
-} */
+}
+*/
 /* ==========================================================================
    Helper classes
    ========================================================================== */

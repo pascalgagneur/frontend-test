@@ -32,20 +32,21 @@ if (!(window.console && console.log)) {
             nameInput = $("#quick-contact-fullname"),
             emailInput = $("#quick-contact-email"),
             urlInput = $("#quick-contact-website"),
-            msgInput = $("#quick-contact-msg");
+            msgInput = $("#quick-contact-msg"),
+            infoElm = $("#quick-contact-user-message");
 
         function correctValue(elm, patt) {
             //console.log(elm.val().match(patt));
-            //console.log(patt.test(elm.val()));
+            elm.unbind('keyup blur');
             if (!elm.val().match(patt)){
                 elm.addClass('error');
-                elm.keyup(function () {
+                elm.bind('keyup blur' ,function () {
                     console.log(patt);
                     correctValue(elm, patt);
                 });
                 anyError = true;
+                infoElm.addClass('error').html("Oops! Something is wrong, check entered values");
             } else {
-                elm.unbind('keyup');
                 elm.removeClass('error');
             }
         }
@@ -55,10 +56,8 @@ if (!(window.console && console.log)) {
         correctValue(emailInput, emailPatt);
         correctValue(urlInput, urlPatt);
 
-        if (anyError) {
-            alert('Please check your values');
-        }
         return !anyError;
+
     });
 
 }(jQuery))
